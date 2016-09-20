@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="num_samples" default="10000" />
+  <arg name="chain_start" default="base" />
+  <arg name="chain_end" default="left_gripper_base" />
+  <arg name="timeout" default="0.005" />
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find baxter_description)/urdf/baxter.urdf'" />
+
+  <node name="trac_ik_tests" pkg="trac_ik_examples" type="ik_tests" output="screen">
+    <param name="num_samples" value="$(arg num_samples)"/>
+    <param name="chain_start" value="$(arg chain_start)"/>
+    <param name="chain_end" value="$(arg chain_end)"/>
+    <param name="timeout" value="$(arg timeout)"/>
+    <param name="urdf_param" value="/robot_description"/>
+  </node>
+
+</launch>

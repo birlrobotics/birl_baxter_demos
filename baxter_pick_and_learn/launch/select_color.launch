@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="rbx1_vision" name="camshift" type="camshift_interBaxter.py" output="screen">
+    <remap from="input_rgb_image" to="/cameras/right_hand_camera/image" />
+    <rosparam>
+       smin: 85
+       vmin: 50
+       vmax: 254
+       threshold: 50
+    </rosparam>
+  </node>
+</launch>

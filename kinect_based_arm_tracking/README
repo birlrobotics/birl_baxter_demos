@@ -1,0 +1,51 @@
+Demo Description
+    This is a demo that makes baxter to mimic the arm motion of a human.It use a package, openni_tracker, to get the data of a human body, which is in fact some tf frames related to the camera.Then, it translates these frames to arm angles, which are used to control the baxter.
+
+What we need
+    baxter robot(real or in gazebo)
+    microsoft kinect
+
+How to use this demo
+    We had some problems in working with the openni in the first place, which showed some errors when we tried to use openni to connect the kinect.Then, following the solution of BastiAB in this website:
+            https://github.com/ros-drivers/openni_tracker/issues/9#issuecomment-90533513
+    We make it work 
+    
+    Here are the steps we take to run the demo:
+        1.follow the instructions of BastiAB in 
+            https://github.com/ros-drivers/openni_tracker/issues/9#issuecomment-90533513
+        2.connect the kinect to your PC    
+        3.open a terminal, run:
+                roslaunch openni_launch openni.launch 
+          this command will use openni to connect to the kinect
+          
+          then, open a terminal, run:
+                rosrun openni_tracker openni_tracker 
+          this command will run the tracker code and thus generate skeletons of human bodies.
+          
+        4.open a terminal, run:
+                rosrun rviz rviz
+          when rviz is launched, choose "openni_depth_frame" in Fixed Frame, add TF to display.
+          You should see a least one skeleton of a human body now. 
+          If nothing shows, make sure some one stands in front of the kinect.
+        5.choose the index of the body you want to track in rviz.
+          open our puber code, change the value of "user_index"
+          
+          for example:
+            we want to tract the person with 'head_1', 
+            then we change the value of "user_index" to be '1' in tf_listen_v8_puber.py
+          
+          now, open a terminal, run:
+                rosrun [package_name] tf_listen_v8_puber
+          this command will make our puber run.
+          the puber is used to receive and smooth the data of the tracked body, then publish them.
+        6.open a terminal, run:
+                rosrun [package_name] tf_listen_v8_controller
+          this command will make our controller run.
+          it subscribes to the topics of smoothed data published by our puber, and controls the baxter accordingly.
+        7.now move your arms in front of the kinect, and the baxter will mimic you!
+
+Demo Video Link
+    https://www.youtube.com/watch?v=U5lJFFy4i3A
+
+
+Feel free to ask or comment!(this may be a bad "read me", grammatically)

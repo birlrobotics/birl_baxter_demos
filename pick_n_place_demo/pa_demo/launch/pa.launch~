@@ -1,0 +1,44 @@
+<launch>
+
+  <!-- Arguments: gripper, debug, record -->
+  <arg name="gripper" default="right" />
+  <arg name="debug" default="false" />
+  <arg name="record" default="false"/>
+
+  <!-- Debug python code in pdb in external bash emulator, xterm -->
+  <arg     if="$(arg debug)" name="pdb_arg" value="xterm -e python -m pdb" />
+  <arg unless="$(arg debug)" name="pdb_arg" value="" />
+
+  <!-- Record Topics to your ~ directory.-->
+ <group if="$(arg record)">
+   <node name="rosbag" pkg="rosbag" type="record"
+         args="-o '~/ros/indigo/baxter_ws/birl_baxter/birl_demos/pa_demo/bags/pa_rightArm'
+               /cameras/right_hand_camera/image
+               /robot/joint_limits
+               /robot/joint_names
+               /robot/joint_states
+               /robot/limb/right/endpoint_state
+               /robot/state
+               /robot/urdf
+               /tf
+               /tf_static">
+   </node>
+ </group>
+
+  <!-- Joint Trajectory Action Server -->
+  <node name="joint_trajectory_action_server" pkg="baxter_interface" type="joint_trajectory_action_server.py" output="screen" respawn="true"/>
+
+  <!-- Gripper Action Server -->
+  <node name="gripper_action_server" pkg="baxter_interface" type="gripper_action_server.py" output="screen" respawn="true"/>
+
+  <!-- IK Node -->
+  <node name="trac_ik_test" pkg="baxter_end_effector_control" type="trac_ik_test" output="screen" respawn="true"/>
+
+  <!-- PA_State Machine w/ topics remapped to match trac_IK_test-->
+  <node name="pa_jtc_tracIK" pkg="pa_demo" type="pa_jtc_tracIK.py" args="-l $(arg gripper)" launch-prefix="$(arg pdb_arg)" output="screen">
+    <remap from="joints" to="end_effector_command_solution"/>
+    <remap from="pose"   to="end_effector_command_position"/>
+
+    <rosparam file="$(find pa_demo)/config/goal_pose.yaml" command="load" />
+  </node>
+</launch>

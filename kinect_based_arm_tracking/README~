@@ -1,0 +1,12 @@
+This is a brief description of this demo.
+
+To run this demo, you have to do a lot of preparations. (Sadly, the most important thing is that you need to have a kinect running first)
+
+1. Follow Dr.Juan's post(https://www.edmodo.com/post/421217073), make sure you did everything correct.
+2. Start the tracker by running: roslaunch rbx1_vision openni_tracker.launch
+3. Seeing the skeleton on rviz by running: rosrun rviz rviz -d `rospack find rbx1_vision`/skeleton_frames.rviz
+4. Starting you simulator by running: roslaunch baxter_gazebo baxter_world.launch
+
+Finally, you can choose one version to run. V3 is the most accuracy one(shaking a lot), V4 reduces some shaking, V5 is accuracy and smooth(recommended), V6 and V7 is still updating.
+
+(Sorry for push it so late, we are really busy these days. If you have any suggestion, please contact 769845081@qq.com or 271462243@qq.com)

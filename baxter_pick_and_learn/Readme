@@ -1,0 +1,1 @@
+This demo has some msg types deprecated and is no longer building properly. It depends on ITBstate.h for navigator button control. The code needs to be updated to NavigatorState.h type messages. Should be a simple fix.

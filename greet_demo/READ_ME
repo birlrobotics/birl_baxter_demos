@@ -1,0 +1,13 @@
+you need to install everything in chapter 9 of the book 'ros_by_example_indigo_volume_1'
+
+the put everything in this file into /your_baxter_ws/src/baxter_examples/scripts
+
+then run:
+    roslaunch rbx1_speech voice_nav_commands.launch
+    rosrun baxter_examples voice_nav.py
+    rosrun sound_play soundplay_node.py
+    rosrun baxter_interface joint_trajectory_action_server.py
+
+I don't write a launch file because some things need to do at the same time
+
+use it with face_tracker

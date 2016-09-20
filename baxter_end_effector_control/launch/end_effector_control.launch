@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+    <arg name="marker" default="false"/>
+    <arg name="keyboard" default="false"/>
+    <arg name="joystick" default="false"/>
+    <arg name="sim" default="false"/>
+    <arg name="trac_ik_keyboard" default="false"/>
+    <arg name="trac_ik_marker" default="false"/>
+
+    <include if="$(arg sim)" file="$(find baxter_gazebo)/launch/baxter_world.launch">
+        <arg name="gui" value="false"/>
+    </include>
+
+    <group if="$(arg marker)">
+        <node name="end_effector_marker_control" pkg="baxter_end_effector_control" type="end_effector_marker_control" output="screen"/>
+        <node name="end_effector_command_solver" pkg="baxter_end_effector_control" type="end_effector_command_solver.py" output="screen"/>
+        <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find baxter_end_effector_control)/marker.rviz"/>
+    </group>
+
+   <group if="$(arg keyboard)">
+        <node name="end_effector_command_solver" pkg="baxter_end_effector_control"   type="end_effector_command_solver.py" output="screen"/>
+        <node name="control_command_subscriber" pkg="baxter_end_effector_control"    type="control_command_subscriber.py" output="screen"/>
+        <node name="end_effector_keyboard_control" pkg="baxter_end_effector_control" type="end_effector_keyboard_control.py" output="screen"/>
+    </group>
+
+    <group if="$(arg trac_ik_marker)">
+        <node name="end_effector_marker_control" pkg="baxter_end_effector_control" type="end_effector_marker_control" output="screen"/>
+        <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find baxter_end_effector_control)/marker.rviz"/>
+        <node name="trac_ik_test" pkg="baxter_end_effector_control" type="trac_ik_test" output="screen" args="-d $(find baxter_end_effector_control)/marker.rviz"/>
+    </group>
+
+   <group if="$(arg trac_ik_keyboard)">
+        <!-- Compute the Inverse Kinematics -->
+        <node name="end_effector_command_solver" pkg="baxter_end_effector_control"   type="trac_ik_test" output="screen"/>
+        <!-- Node to perform sanity check on keyboard data before publishing -->
+        <node name="control_command_subscriber" pkg="baxter_end_effector_control"    type="control_command_subscriber.py" output="screen"/>
+        <!-- Use keyboard for teleoperation -->
+        <node name="end_effector_keyboard_control" pkg="baxter_end_effector_control" type="end_effector_keyboard_control.py" output="screen"/>
+    </group>
+
+    <node name="end_effector_trajectory_client" pkg="baxter_end_effector_control" type="end_effector_trajectory_client.py" output="screen"/>
+
+</launch>

@@ -1,0 +1,76 @@
+pa_jtc_tracIK.py Evaluation
+---------------------------------------------------------------------------------------------------------------
+## Flags                                                                           
+---------------------------------------------------------------------------------------------------------------
+reference_pose_flag = 0||1                 
+# Used to determine whether to used saved joint angle data for the reference position (true) or not (false).                 
+
+#Inverse Kinematics Computation                                                    
+PY_KDL=0
+TRAC_IK=1
+kinematics_flag=PY_KDL || TRAC_IK
+# Used to determine wheter to use kdl or trac_ik for kinematics                                                              
+
+# Movement Algorithm                                                               
+MOVE_JNT_PSTN=0
+JOINT_ACT_CLN=1
+approach_flag=MOVE_JNT_PSTN || JOINT_ACT_CLN
+# Used to determine whether to use move_to_joint_positions or joint_trajectory_action_client approach  
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+Case 001:
+---------------------------------------------------------------------------------------------------------------
+reference_pose_flag = 1
+kinematics_flag=PY_KDL
+approach_flag=MOVE_JNT_PSTN
+Evaluation: works
+
+---------------------------------------------------------------------------------------------------------------
+Case 002a:
+---------------------------------------------------------------------------------------------------------------
+reference_pose_flag = 0
+Using: roslaunch end_effector_teleoperation_control end_effector_marker_control.launch keyboard:=true
+kinematics_flag=PY_KDL
+approach_flag=MOVE_JNT_PSTN
+Evaluation: works
+
+---------------------------------------------------------------------------------------------------------------
+Case 002b:
+---------------------------------------------------------------------------------------------------------------
+reference_pose_flag = 0
+Using: 
+- roslaunch baxter_end_effector_control end_effector_control.launch 
+- rosrun baxter_end_effector_control end_effector_keyboard_control.py
+kinematics_flag=PY_KDL
+approach_flag=MOVE_JNT_PSTN
+Evaluation: no. the trac ik is showing very strange behavior
+
+---------------------------------------------------------------------------------------------------------------
+Case 003:
+---------------------------------------------------------------------------------------------------------------
+reference_pose_flag = 1
+kinematics_flag=PY_KDL
+approach_flag=JOINT_ACT_CLN
+Evaluation: works
+
+---------------------------------------------------------------------------------------------------------------
+Case 004:
+---------------------------------------------------------------------------------------------------------------
+reference_pose_flag = 0
+Using: roslaunch end_effector_teleoperation_control end_effector_marker_control.launch keyboard:=true
+kinematics_flag=PY_KDL
+approach_flag=JOINT_ACT_CLN
+Evaluation: works
+
+---------------------------------------------------------------------------------------------------------------
+Case 004b:
+---------------------------------------------------------------------------------------------------------------
+reference_pose_flag = 0
+Using: 
+- roslaunch baxter_end_effector_control end_effector_control.launch 
+- rosrun baxter_end_effector_control end_effector_keyboard_control.py
+kinematics_flag=PY_KDL
+approach_flag=JOINT_ACT_CLN
+Evaluation: no. the trac ik is showing very strange behavior
+
+

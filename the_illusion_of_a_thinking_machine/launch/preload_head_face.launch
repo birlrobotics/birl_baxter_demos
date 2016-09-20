@@ -1,0 +1,10 @@
+<launch>
+
+  <node name="rsdk_head_stage1_wobbler" pkg="my_baxter" type="my_head_wobbler_stage1.py"/>
+  <node name="rsdk_xdisplay_stage1_image" pkg="my_baxter" type="my_xdisplay_image_stage1.py"/>
+  <node name="rsdk_head_stage2_wobbler" pkg="my_baxter" type="my_head_wobbler_stage2.py"/>
+  <node name="rsdk_xdisplay_stage2_image" pkg="my_baxter" type="my_xdisplay_image_stage2.py"/>
+  <node name="rsdk_head_stage3_wobbler" pkg="my_baxter" type="my_head_wobbler_stage3.py"/>
+  <node name="rsdk_xdisplay_stage3_image" pkg="my_baxter" type="my_xdisplay_image_stage3.py"/>
+  
+</launch>

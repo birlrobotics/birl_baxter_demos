@@ -1,0 +1,11 @@
+This demo lets Baxter hold a ball with two arms while these arms handle the ball in different angles.
+Both arms always maintain the same relative pose, so the ball never falls.
+It has been tested on Ubuntu 14.04 and ROS indigo.
+All original code relevant to this demo can be found at:
+http://sdk.rethinkrobotics.com/wiki/Collaborative_Manipulation
+
+wiki(English):
+https://github.com/sysurobotics/sysu_baxter/wiki/Collaborative_Manipulation_en
+
+wiki(Chinese):
+https://github.com/sysurobotics/sysu_baxter/wiki/Collaborative_Manipulation_cn
