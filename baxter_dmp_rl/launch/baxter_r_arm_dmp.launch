@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="num_samples" default="1000" />
+  <arg name="chain_start" default="" />
+  <arg name="chain_end" default="" />
+  <arg name="timeout" default="0.005" />
+
+  <param name="robot_description" command="$(find xacro)/xacro.py --inorder '$(find baxter_description)/urdf/baxter.urdf.xacro'" />
+
+
+  <node name="dmp" pkg="dmp" type="dmp_server" respawn="false" output="screen"/>
+  
+  <node name="baxter_dmp" pkg="dmp" type="baxter_r_arm_dmp.py" output="screen"/>
+  
+<!--  <node name="baxter_trac_ik" pkg="trac_ik_examples" type="baxter_trac_ik" output="screen"> -->
+    <param name="num_samples" value="$(arg num_samples)"/>
+    <param name="chain_start" value="$(arg chain_start)"/>
+    <param name="chain_end" value="$(arg chain_end)"/>
+    <param name="timeout" value="$(arg timeout)"/>
+    <param name="urdf_param" value="/robot_description"/>
+
+
+</launch>

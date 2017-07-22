@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="dmp_joint_trajectory_action_server" pkg="dmp"   type="dmp_joint_trajectory_action_server.py" output="screen"/>
+    
+    <node name="dmp_joint_trajectory_client" pkg="dmp"   type="dmp_joint_trajectory_client.py" output="screen"
+    args="-f  $(find dmp)/datasets/baxter_joint_output_data.csv"/>
+
+</launch>    

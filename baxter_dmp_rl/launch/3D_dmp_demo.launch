@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- This launch file is for the 3D dmp demo, the input is just x,y,z -->
+<launch>
+	<!-- launch dmp server -->
+	<node name="dmp" pkg="dmp" type="dmp_server" respawn="false" output="screen"/>
+	<!-- turn on 3D_DMP node for generate 3d trajectory -->
+        <node name="dmp_3d_demo" pkg="dmp"  type="dmp_3d_demo.py" output="screen"/>
+</launch>
