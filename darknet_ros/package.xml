@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+   <name>darknet_ros</name>
+   <version>0.0.1</version>
+   <description>YOLO in ROS</description>
+   <maintainer email="412408961@qq.com">Jiajie</maintainer>
+
+   <license>BSD</license>
+
+   <buildtool_depend>catkin</buildtool_depend>
+
+   <build_depend>std_msgs</build_depend>
+   <build_depend>cv_bridge</build_depend>
+   <build_depend>sensor_msgs</build_depend>
+   <build_depend>opencv2</build_depend>
+   <build_depend>image_transport</build_depend>
+   <build_depend>message_generation</build_depend>
+   <!--需要message_generation生成C++或Python能使用的代码，需要message_runtime提供运行时的支持-->
+   <build_depend>roscpp</build_depend><!--维护需要-->
+   <!--build_depend>msg</build_depend--><!--维护需要-->
+
+   <run_depend>std_msgs</run_depend>
+   <run_depend>cv_bridge</run_depend>
+   <run_depend>sensor_msgs</run_depend>
+   <run_depend>opencv2</run_depend>
+   <run_depend>image_transport</run_depend>
+   <run_depend>message_runtime</run_depend>
+   <run_depend>roscpp</run_depend><!--维护需要-->
+   <!--run_depend>msg</run_depend--><!--维护需要-->
+
+</package>

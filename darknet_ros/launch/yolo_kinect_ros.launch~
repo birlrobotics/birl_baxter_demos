@@ -1,0 +1,7 @@
+<launch>
+
+   <node pkg="darknet_ros" type="yolo_ros" name="yolo_ros">
+      <param name="image_width" value="640"/>
+      <param name="image_height" value="480"/>
+   </node>
+</launch>
