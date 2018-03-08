@@ -1,0 +1,12 @@
+movable
+stationary
+reachable
+pourable
+pourto
+containable
+drinkable
+openable
+placeable
+closeable
+cleanable
+cleaner

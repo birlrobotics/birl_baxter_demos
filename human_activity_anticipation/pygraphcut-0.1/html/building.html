@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="style.css" />
+	<title>Building and Installing</title>
+<style>
+	
+</style></head>
+<body>
+
+<h1>Building and Installing</h1>
+
+<p>The module builds and tests pass with Python 2.3, 2.4, and 2.5.  Earlier versions of Python will not work.  I have developed this on both OS X and Linux.  I do not know if it will work on Windows; this may be easy with appropriate simple modifications to the build process, but I am unable to confirm this.</p>
+
+<p>Here are the brief instructions for installing.</p>
+<ul>
+<li>Build the module using <code>make</code> . (Pay attention to warnings!)</li>
+<li>Run <code>make test</code> to execute the test suite.  You want these tests to succeed with an <code>OK</code>.
+<li>Build the module using <code>make install</code> to install the module in your Python build's <code>site-packages</code> directory.  On a typical system, you will need to run this as the superuser (probably <code>sudo make install</code>).</li>
+</ul>
+
+<p>In the ideal case, this will just work.</p>
+
+<h2>Troubleshooting</h2>
+
+<p>This contains a guide for if you are having trouble building or testing.</p>
+
+<h3>If You're Having Trouble Building</h3>
+
+<p>Below are some suggestions to try or avenues to pursue if you're having trouble building.  This is not an exhaustive list, just "the most likely suspects."
+<ul>
+<li>The build process assumes that the default Python (i.e., the Python you would get if you tried executing <code>python</code> within <code>sh</code>) is the one for which you want to build <code>graphcut</code>.  If this is untrue, modify the <code>Makefile</code> file to change the assignment <code>PYTHON:=python</code> to something like <code>PYTHON:=/path/to/other/python</code>.
+<li>Perhaps the Python shared library or headers were not included along with the Python interpreter with whatever installation of Python is on your system.  Package management systems using binary distributions often cripple their users by omitting header files or even shared libraries in an attempt to install clever bare-bones "non-developer" versions of packages to save their users a few whopping thousandths of a cent or so in the disk storage it would take to store a few header files.  If your package manager has something resembling <code>python-dev</code> or <code>python-shlibs</code> (or something similar) that was not installed with your Python distribution, make sure you install it, and retry the build.
+</ul>
+</p>
+
+<h3>If You're Having Trouble Testing</h3>
+
+<p>Once you have built the module successfully and there is a <code>graphcut.so</code> symbolic link to the build directory's shared library, you should run the principle test suite through <code>make test</code>.  The tests should succeed with an <code>OK</code>.  If the tests do not succeed, email me a bug report with a copied-and-pasted transcript and description of the failure, as well as relevant information related to your system and Python installation (e.g., "I am using OS X 10.4 with the Fink installed version of Python 2.5.1" or "I am using Ubunto with the default package manager's Python 2.4").</p>
+
+<h3>If You're Having Trouble Installing</h3>
+
+<p>If it says permission denied when running <code>make install</code>, perhaps you need to run the command as the superuser, e.g., <code>sudo make install</code> on OS X and most modern Linux distributions.</p>
+
+<hr/>
+Thomas Finley, 2007
+</body>
+</html>

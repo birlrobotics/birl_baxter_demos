@@ -1,0 +1,58 @@
+python setup.py build
+running build
+running build_ext
+building 'graphcut' extension
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/interface.cpp -o build/temp.linux-x86_64-2.6/src/interface.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+src/interface.cpp: In function ‘void initgraphcut()’:
+src/interface.cpp:33: warning: deprecated conversion from string constant to ‘char*’
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/graphobj.cpp -o build/temp.linux-x86_64-2.6/src/graphobj.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+src/graphobj.cpp:207: warning: deprecated conversion from string constant to ‘char*’
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/energyobj.cpp -o build/temp.linux-x86_64-2.6/src/energyobj.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/qpboobj.cpp -o build/temp.linux-x86_64-2.6/src/qpboobj.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/outside/graph.cpp -o build/temp.linux-x86_64-2.6/src/outside/graph.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+src/outside/graph.cpp: In constructor ‘Graph::Graph(int, int, void (*)(char*))’:
+src/outside/graph.cpp:21: warning: deprecated conversion from string constant to ‘char*’
+src/outside/graph.cpp: In member function ‘void Graph::reallocate_nodes(int)’:
+src/outside/graph.cpp:70: warning: deprecated conversion from string constant to ‘char*’
+src/outside/graph.cpp: In member function ‘void Graph::reallocate_arcs()’:
+src/outside/graph.cpp:94: warning: deprecated conversion from string constant to ‘char*’
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/outside/maxflow.cpp -o build/temp.linux-x86_64-2.6/src/outside/maxflow.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+src/outside/maxflow.cpp: In member function ‘double Graph::maxflow(bool, Block<int>*)’:
+src/outside/maxflow.cpp:485: warning: deprecated conversion from string constant to ‘char*’
+src/outside/maxflow.cpp:486: warning: deprecated conversion from string constant to ‘char*’
+In file included from src/outside/graph.h:43,
+                 from src/outside/maxflow.cpp:5:
+src/outside/block.h: In member function ‘Type* DBlock<Type>::New() [with Type = Graph::nodeptr]’:
+src/outside/maxflow.cpp:85:   instantiated from here
+src/outside/block.h:223: warning: deprecated conversion from string constant to ‘char*’
+src/outside/block.h: In member function ‘Type* Block<Type>::New(int) [with Type = int]’:
+src/outside/maxflow.cpp:111:   instantiated from here
+src/outside/block.h:124: warning: deprecated conversion from string constant to ‘char*’
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/outside/energy.cpp -o build/temp.linux-x86_64-2.6/src/outside/energy.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Isrc/outside -I/usr/include/python2.6 -c src/outside/QPBO.cpp -o build/temp.linux-x86_64-2.6/src/outside/QPBO.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+In file included from src/outside/QPBO.cpp:943:
+src/outside/instances.inc:12: error: ‘Graph’ is not a template
+src/outside/instances.inc:12: error: explicit instantiation of non-template type ‘Graph’
+src/outside/instances.inc:13: error: ‘Graph’ is not a template
+src/outside/instances.inc:13: error: explicit instantiation of non-template type ‘Graph’
+src/outside/instances.inc:14: error: ‘Graph’ is not a template
+src/outside/instances.inc:14: error: explicit instantiation of non-template type ‘Graph’
+src/outside/instances.inc:15: error: ‘Graph’ is not a template
+src/outside/instances.inc:15: error: explicit instantiation of non-template type ‘Graph’
+error: command 'gcc' failed with exit status 1
+make: *** [graphcut.so] Error 1

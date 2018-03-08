@@ -1,0 +1,64 @@
+body { font-family: Sans-Serif; }
+
+pre.c, code.c { color: #900; }
+pre.py, code.py { color: #063; }
+pre.out, code.out { color: purple; }
+
+dt {
+	margin-top : 1em;
+	font-weight: bold;
+}
+
+h1
+{
+	border-top-style: solid;
+	border-color: black;
+	border-width: medium;
+}
+h2
+{
+	border-top-style: dotted;
+	border-color: gray;
+	border-width: thin;
+}
+font.comment { color: navy; }
+
+table.cpycomp {
+	border-color: black;
+	border-width: thin;
+	border-style: solid;
+}
+
+table.cpycomp td
+{
+	color: #444;
+	vertical-align: top;
+}
+
+table.cpycomp tr.desc td
+{
+	border-color: gray;
+	border-width: thin;
+	border-style: solid none none none;
+}
+
+table.cpycomp td.reflink
+{
+	border-color: blue;
+	border-width: thick;
+	border-style: solid none none none;
+	font-weight: bold;
+	padding-top: 0.5em;
+}
+
+table.cpycomp td.reflink a
+{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+table.cpycomp tr.section { background-color: #DDD; }
+
+td.capi  code { color: #900; font-weight: normal; }
+td.pymod code { color: #063; font-weight: normal; padding-left: 4pt; padding-right: 4pt; }
+tr.desc { display: default; } /* Change to none to make disappear. */

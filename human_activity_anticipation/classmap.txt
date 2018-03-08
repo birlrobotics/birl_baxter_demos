@@ -1,0 +1,10 @@
+reaching
+moving
+pouring
+eating
+drinking
+opening
+placing
+closing
+null
+cleaning

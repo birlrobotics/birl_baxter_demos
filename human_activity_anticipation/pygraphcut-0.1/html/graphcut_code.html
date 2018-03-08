@@ -1,0 +1,207 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module graphcut</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>graphcut</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/thomas/Documents/Work/ra/graph-cuts/pygraphcut/graphcut.so">/Users/thomas/Documents/Work/ra/graph-cuts/pygraphcut/graphcut.so</a></font></td></tr></table>
+    <p><tt>Module&nbsp;for&nbsp;performing&nbsp;graph&nbsp;cuts&nbsp;and&nbsp;energy&nbsp;minimization.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="graphcut.html#Graph">Graph</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="graphcut.html#Energy">Energy</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Energy">class <strong>Energy</strong></a>(<a href="graphcut.html#Graph">Graph</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Energy">Energy</a>()&nbsp;--&gt;&nbsp;An&nbsp;energy&nbsp;minimization&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+&nbsp;<br>
+This&nbsp;represents&nbsp;an&nbsp;energy&nbsp;minimization&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;&nbsp;One&nbsp;may&nbsp;define&nbsp;binary<br>
+variables,&nbsp;and&nbsp;set&nbsp;energy&nbsp;terms&nbsp;(indicating&nbsp;the&nbsp;energy&nbsp;a&nbsp;variable<br>
+contributes&nbsp;when&nbsp;it&nbsp;is&nbsp;various&nbsp;true/false&nbsp;states),&nbsp;and&nbsp;then&nbsp;run&nbsp;graph<br>
+cut&nbsp;inference&nbsp;to&nbsp;get&nbsp;the&nbsp;minimization&nbsp;state.<br>
+&nbsp;<br>
+As&nbsp;a&nbsp;technical&nbsp;matter,&nbsp;this&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;the&nbsp;<a href="#Graph">Graph</a>&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+Calling&nbsp;the&nbsp;superclass&nbsp;methods&nbsp;should&nbsp;not&nbsp;be&nbsp;necessary&nbsp;in&nbsp;most<br>
+situations.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="graphcut.html#Energy">Energy</a></dd>
+<dd><a href="graphcut.html#Graph">Graph</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Energy-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Energy-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="Energy-add_term"><strong>add_term</strong></a>(...)</dt><dd><tt><a href="#Energy-add_term">add_term</a>(E)<br>
+<a href="#Energy-add_term">add_term</a>(x,&nbsp;E0,&nbsp;E1)<br>
+<a href="#Energy-add_term">add_term</a>(x,&nbsp;y,&nbsp;E00,&nbsp;E01,&nbsp;E10,&nbsp;E11)<br>
+&nbsp;<br>
+In&nbsp;first&nbsp;form,&nbsp;adds&nbsp;E&nbsp;to&nbsp;the&nbsp;objective.<br>
+In&nbsp;second&nbsp;form,&nbsp;adds&nbsp;Ei&nbsp;to&nbsp;the&nbsp;objective&nbsp;if&nbsp;x==i.<br>
+In&nbsp;third&nbsp;form,&nbsp;adds&nbsp;Eij&nbsp;to&nbsp;the&nbsp;objective&nbsp;if&nbsp;x==i&nbsp;and&nbsp;y==j.<br>
+For&nbsp;the&nbsp;third&nbsp;form,&nbsp;it&nbsp;must&nbsp;be&nbsp;that&nbsp;E00+E11&nbsp;&lt;=&nbsp;E01+E10&nbsp;to<br>
+preserve&nbsp;submodularity.</tt></dd></dl>
+
+<dl><dt><a name="Energy-add_variable"><strong>add_variable</strong></a>(...)</dt><dd><tt><a href="#Energy-add_variable">add_variable</a>()<br>
+&nbsp;<br>
+Adds&nbsp;a&nbsp;variable&nbsp;to&nbsp;the&nbsp;energy&nbsp;problem,&nbsp;returning&nbsp;the&nbsp;ID.</tt></dd></dl>
+
+<dl><dt><a name="Energy-minimize"><strong>minimize</strong></a>(...)</dt><dd><tt><a href="#Energy-minimize">minimize</a>()<br>
+&nbsp;<br>
+Run&nbsp;energy&nbsp;minimization&nbsp;and&nbsp;return&nbsp;the&nbsp;minimization&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Energy-var"><strong>var</strong></a>(...)</dt><dd><tt><a href="#Energy-var">var</a>(i)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;binary&nbsp;value&nbsp;for&nbsp;variable&nbsp;i.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x5d2188&gt;<dd><tt>T.<a href="#Energy-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="graphcut.html#Graph">Graph</a>:<br>
+<dl><dt><a name="Energy-add_edge"><strong>add_edge</strong></a>(...)</dt><dd><tt><a href="#Energy-add_edge">add_edge</a>(i,&nbsp;j,&nbsp;i2j_cap,&nbsp;j2i_cap)<br>
+&nbsp;<br>
+For&nbsp;nodes&nbsp;with&nbsp;index&nbsp;i&nbsp;and&nbsp;j,&nbsp;set&nbsp;capacities&nbsp;between&nbsp;i&nbsp;and&nbsp;j.<br>
+Note&nbsp;that&nbsp;this&nbsp;is&nbsp;additive,&nbsp;that&nbsp;is,&nbsp;previous&nbsp;capacities&nbsp;between<br>
+two&nbsp;given&nbsp;nodes&nbsp;are&nbsp;not&nbsp;overridden&nbsp;with&nbsp;this&nbsp;assignment.&nbsp;&nbsp;Instead<br>
+the&nbsp;new&nbsp;capacity&nbsp;is&nbsp;the&nbsp;old&nbsp;capacity&nbsp;plus&nbsp;whatever&nbsp;capacity&nbsp;was<br>
+defined&nbsp;through&nbsp;this&nbsp;function.&nbsp;&nbsp;Capacities&nbsp;cannot&nbsp;be&nbsp;negative.</tt></dd></dl>
+
+<dl><dt><a name="Energy-add_node"><strong>add_node</strong></a>(...)</dt><dd><tt><a href="#Energy-add_node">add_node</a>([numnodes=1])<br>
+&nbsp;<br>
+Creates&nbsp;numnodes&nbsp;nodes.&nbsp;&nbsp;Returns&nbsp;ID&nbsp;of&nbsp;first&nbsp;created&nbsp;node.&nbsp;&nbsp;Note<br>
+all&nbsp;nodes&nbsp;created&nbsp;have&nbsp;integer&nbsp;indices&nbsp;sequentially&nbsp;in&nbsp;order<br>
+after&nbsp;the&nbsp;first&nbsp;created&nbsp;node,&nbsp;that&nbsp;is,&nbsp;if&nbsp;i==<a href="#Energy-add_node">add_node</a>(j),&nbsp;then<br>
+nodes&nbsp;with&nbsp;indices&nbsp;i,&nbsp;i+1,&nbsp;i+2,&nbsp;...,&nbsp;i+j-1&nbsp;now&nbsp;exist.&nbsp;&nbsp;The&nbsp;first<br>
+node&nbsp;ever&nbsp;created&nbsp;should&nbsp;have&nbsp;index&nbsp;0.</tt></dd></dl>
+
+<dl><dt><a name="Energy-add_tweights"><strong>add_tweights</strong></a>(...)</dt><dd><tt><a href="#Energy-add_tweights">add_tweights</a>(i,&nbsp;source2i_cap,&nbsp;i2sink_cap)<br>
+&nbsp;<br>
+For&nbsp;node&nbsp;i,&nbsp;set&nbsp;capacity&nbsp;from&nbsp;source&nbsp;to&nbsp;i&nbsp;and&nbsp;to&nbsp;sink&nbsp;from&nbsp;i.<br>
+Note&nbsp;that&nbsp;this&nbsp;has&nbsp;similar&nbsp;additive&nbsp;behavior&nbsp;as&nbsp;add_edge.</tt></dd></dl>
+
+<dl><dt><a name="Energy-maxflow"><strong>maxflow</strong></a>(...)</dt><dd><tt><a href="#Energy-maxflow">maxflow</a>()<br>
+&nbsp;<br>
+Computes&nbsp;the&nbsp;maxflow/mincut,&nbsp;returning&nbsp;the&nbsp;flow&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Energy-segment"><strong>segment</strong></a>(...)</dt><dd><tt><a href="#Energy-segment">segment</a>(i)<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;node&nbsp;i&nbsp;is&nbsp;in&nbsp;the&nbsp;sink's&nbsp;partition,<br>
+or&nbsp;False&nbsp;if&nbsp;it&nbsp;is&nbsp;in&nbsp;the&nbsp;source's&nbsp;partition.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="graphcut.html#Graph">Graph</a>:<br>
+<dl><dt><strong>num_nodes</strong></dt>
+<dd><tt>The&nbsp;number&nbsp;of&nbsp;nodes&nbsp;in&nbsp;the&nbsp;graph.</tt></dd>
+</dl>
+<dl><dt><strong>segments</strong></dt>
+<dd><tt>A&nbsp;list,&nbsp;with&nbsp;an&nbsp;element&nbsp;for&nbsp;each&nbsp;node&nbsp;indicating&nbsp;if&nbsp;it&nbsp;is<br>
+in&nbsp;the&nbsp;sink's&nbsp;partition.</tt></dd>
+</dl>
+<dl><dt><strong>sink_nodes</strong></dt>
+<dd><tt>A&nbsp;list&nbsp;of&nbsp;the&nbsp;nodes&nbsp;in&nbsp;the&nbsp;sink's&nbsp;partition.</tt></dd>
+</dl>
+<dl><dt><strong>source_nodes</strong></dt>
+<dd><tt>A&nbsp;list&nbsp;of&nbsp;the&nbsp;nodes&nbsp;in&nbsp;the&nbsp;source's&nbsp;parition.</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Graph">class <strong>Graph</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Graph">Graph</a>()&nbsp;--&gt;&nbsp;A&nbsp;graph&nbsp;empty&nbsp;except&nbsp;for&nbsp;the&nbsp;source&nbsp;and&nbsp;sink.<br>
+&nbsp;<br>
+This&nbsp;represents&nbsp;a&nbsp;capacity&nbsp;graph&nbsp;one&nbsp;may&nbsp;run&nbsp;linear&nbsp;programming&nbsp;upon.<br>
+Initially&nbsp;this&nbsp;graph&nbsp;is&nbsp;empty&nbsp;except&nbsp;for&nbsp;the&nbsp;source&nbsp;and&nbsp;sink,&nbsp;but&nbsp;one<br>
+may&nbsp;add&nbsp;nodes&nbsp;and&nbsp;edges&nbsp;to&nbsp;this&nbsp;with&nbsp;given&nbsp;capacity,&nbsp;and&nbsp;run&nbsp;maxflow<br>
+to&nbsp;run&nbsp;graph&nbsp;cut&nbsp;to&nbsp;partition&nbsp;nodes&nbsp;into&nbsp;source&nbsp;and&nbsp;sink&nbsp;partitions.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;the&nbsp;source&nbsp;and&nbsp;sink&nbsp;nodes&nbsp;do&nbsp;not&nbsp;exist&nbsp;explicitly,&nbsp;but&nbsp;are<br>
+assumed&nbsp;to&nbsp;always&nbsp;exist.&nbsp;&nbsp;Consequences&nbsp;of&nbsp;this&nbsp;include&nbsp;that&nbsp;the&nbsp;number<br>
+of&nbsp;nodes&nbsp;does&nbsp;not&nbsp;include&nbsp;the&nbsp;source&nbsp;and&nbsp;sink,&nbsp;the&nbsp;first&nbsp;index&nbsp;of&nbsp;a<br>
+node&nbsp;is&nbsp;0,&nbsp;and&nbsp;there&nbsp;are&nbsp;different&nbsp;methods&nbsp;for&nbsp;setting&nbsp;capacities<br>
+between&nbsp;non-source/sink&nbsp;nodes,&nbsp;and&nbsp;a&nbsp;non-source/sink&nbsp;node&nbsp;and&nbsp;either<br>
+the&nbsp;source&nbsp;or&nbsp;the&nbsp;sink.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Graph-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Graph-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="Graph-add_edge"><strong>add_edge</strong></a>(...)</dt><dd><tt><a href="#Graph-add_edge">add_edge</a>(i,&nbsp;j,&nbsp;i2j_cap,&nbsp;j2i_cap)<br>
+&nbsp;<br>
+For&nbsp;nodes&nbsp;with&nbsp;index&nbsp;i&nbsp;and&nbsp;j,&nbsp;set&nbsp;capacities&nbsp;between&nbsp;i&nbsp;and&nbsp;j.<br>
+Note&nbsp;that&nbsp;this&nbsp;is&nbsp;additive,&nbsp;that&nbsp;is,&nbsp;previous&nbsp;capacities&nbsp;between<br>
+two&nbsp;given&nbsp;nodes&nbsp;are&nbsp;not&nbsp;overridden&nbsp;with&nbsp;this&nbsp;assignment.&nbsp;&nbsp;Instead<br>
+the&nbsp;new&nbsp;capacity&nbsp;is&nbsp;the&nbsp;old&nbsp;capacity&nbsp;plus&nbsp;whatever&nbsp;capacity&nbsp;was<br>
+defined&nbsp;through&nbsp;this&nbsp;function.&nbsp;&nbsp;Capacities&nbsp;cannot&nbsp;be&nbsp;negative.</tt></dd></dl>
+
+<dl><dt><a name="Graph-add_node"><strong>add_node</strong></a>(...)</dt><dd><tt><a href="#Graph-add_node">add_node</a>([numnodes=1])<br>
+&nbsp;<br>
+Creates&nbsp;numnodes&nbsp;nodes.&nbsp;&nbsp;Returns&nbsp;ID&nbsp;of&nbsp;first&nbsp;created&nbsp;node.&nbsp;&nbsp;Note<br>
+all&nbsp;nodes&nbsp;created&nbsp;have&nbsp;integer&nbsp;indices&nbsp;sequentially&nbsp;in&nbsp;order<br>
+after&nbsp;the&nbsp;first&nbsp;created&nbsp;node,&nbsp;that&nbsp;is,&nbsp;if&nbsp;i==<a href="#Graph-add_node">add_node</a>(j),&nbsp;then<br>
+nodes&nbsp;with&nbsp;indices&nbsp;i,&nbsp;i+1,&nbsp;i+2,&nbsp;...,&nbsp;i+j-1&nbsp;now&nbsp;exist.&nbsp;&nbsp;The&nbsp;first<br>
+node&nbsp;ever&nbsp;created&nbsp;should&nbsp;have&nbsp;index&nbsp;0.</tt></dd></dl>
+
+<dl><dt><a name="Graph-add_tweights"><strong>add_tweights</strong></a>(...)</dt><dd><tt><a href="#Graph-add_tweights">add_tweights</a>(i,&nbsp;source2i_cap,&nbsp;i2sink_cap)<br>
+&nbsp;<br>
+For&nbsp;node&nbsp;i,&nbsp;set&nbsp;capacity&nbsp;from&nbsp;source&nbsp;to&nbsp;i&nbsp;and&nbsp;to&nbsp;sink&nbsp;from&nbsp;i.<br>
+Note&nbsp;that&nbsp;this&nbsp;has&nbsp;similar&nbsp;additive&nbsp;behavior&nbsp;as&nbsp;add_edge.</tt></dd></dl>
+
+<dl><dt><a name="Graph-maxflow"><strong>maxflow</strong></a>(...)</dt><dd><tt><a href="#Graph-maxflow">maxflow</a>()<br>
+&nbsp;<br>
+Computes&nbsp;the&nbsp;maxflow/mincut,&nbsp;returning&nbsp;the&nbsp;flow&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Graph-segment"><strong>segment</strong></a>(...)</dt><dd><tt><a href="#Graph-segment">segment</a>(i)<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;node&nbsp;i&nbsp;is&nbsp;in&nbsp;the&nbsp;sink's&nbsp;partition,<br>
+or&nbsp;False&nbsp;if&nbsp;it&nbsp;is&nbsp;in&nbsp;the&nbsp;source's&nbsp;partition.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>num_nodes</strong></dt>
+<dd><tt>The&nbsp;number&nbsp;of&nbsp;nodes&nbsp;in&nbsp;the&nbsp;graph.</tt></dd>
+</dl>
+<dl><dt><strong>segments</strong></dt>
+<dd><tt>A&nbsp;list,&nbsp;with&nbsp;an&nbsp;element&nbsp;for&nbsp;each&nbsp;node&nbsp;indicating&nbsp;if&nbsp;it&nbsp;is<br>
+in&nbsp;the&nbsp;sink's&nbsp;partition.</tt></dd>
+</dl>
+<dl><dt><strong>sink_nodes</strong></dt>
+<dd><tt>A&nbsp;list&nbsp;of&nbsp;the&nbsp;nodes&nbsp;in&nbsp;the&nbsp;sink's&nbsp;partition.</tt></dd>
+</dl>
+<dl><dt><strong>source_nodes</strong></dt>
+<dd><tt>A&nbsp;list&nbsp;of&nbsp;the&nbsp;nodes&nbsp;in&nbsp;the&nbsp;source's&nbsp;parition.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x5d2004&gt;<dd><tt>T.<a href="#Graph-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
