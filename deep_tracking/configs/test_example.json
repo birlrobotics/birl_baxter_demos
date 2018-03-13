@@ -1,0 +1,60 @@
+{
+"models": [
+
+    {
+      "name": "model_name",
+      "model_path": "path/to/geometry.ply",
+      "ambiant_occlusion_model": "path/to/ao.ply,
+      "object_width": "250" # cropping width of the model (mm)
+    }
+    ],
+  "model_file": "path/to/lua/code.lua",  #Relative path!! else lua will crash
+  "output_path": "path/to/output",
+  "shader_path": "deeptracking/data/shaders",
+  "model_path": "path/to/trained/model",
+  "video_path": "path/to/sequence/folder",
+  "reset_frequency": "0",       # will reset to groundtruth every x frames
+  "closed_loop_iteration": "3", # number of prediction between two frame
+  "save_frames": "False",       # save all frames in output folder
+  "save_video": "True",         # save video in output folder
+  "show_axis": "False",         # show axis instead of 3D model overlay
+  "show_depth": "False",        # show depth channel
+  "show_zoom": "True",          # show network input
+
+  "use_sensor": "True",
+  "COMMENT": "Sensor only",
+  "detector_layout_path": "path/to/aruco/layout/aruco_layout_tiny.xml",
+  "sensor_camera_path": "path/to/camera.json",
+  "offset": "file"
+}
+
+#examples show bellow please rmove it when you run your own json !!!!!
+{
+"models": [
+
+    {
+      "name": "skull",
+      "model_path": "/home/gaofei/deeptracking/3dmodels/skull/geometry.ply",
+      "ambiant_occlusion_model": "/home/gaofei/deeptracking/3dmodels/skull/ao.ply",
+      "object_width": "250" 
+    }
+    ],
+  "model_file": "/home/gaofei/deeptracking/deeptracking/deeptracking/tracker/rgbd_tracker.lua",  
+  "output_path": "skull_train_output",
+  "shader_path": "/home/gaofei/deeptracking/deeptracking/data/shaders/",
+  "model_path": "/deeptracking/tracker/rgbd_tracker.lua",#path to the trained result like .t7 files (the file located at the specified path of train json file)
+  "video_path": "path/to/sequence/folder",#download the sequence in the project web and set the path to it
+  "reset_frequency": "0",       
+  "closed_loop_iteration": "3", 
+  "save_frames": "False",       
+  "save_video": "True",         
+  "show_axis": "False",         
+  "show_depth": "False",        
+  "show_zoom": "True",          
+
+  "use_sensor": "True",
+  "COMMENT": "Sensor only",
+  "detector_layout_path": "/home/gaofei/deeptracking/deeptracking/deeptracking/detector/aruco_layout_tiny.xml",
+  "sensor_camera_path": "/home/gaofei/deeptracking/raw_training/skull/train/camera.json",
+  "offset": "file"
+}

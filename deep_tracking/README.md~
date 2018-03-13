@@ -1,0 +1,91 @@
+# deeptracking
+
+Torch + python implementation of [Deep 6-DOF Tracking](https://arxiv.org/abs/1703.09771)
+
+Note that a docker file is available(it is used for training the result (.t7 file ) for test.py which can be used easily without install any dependences for training)!!!!
+
+The code to parse a ply file is  provided.
+
+
+TODO: update with the more recent pytorch framework...
+
+The datasets and 3D models from the paper can be found [Here](http://vision.gel.ulaval.ca/~jflalonde/projects/deepTracking/index.html).
+
+### Dependences installation
+Please refer the wiki page can be found [Here](https://github.com/birlrobotics/birl_baxter/wiki/Deep_6DOF_Tracking-_en). 
+There should have everything you need for the project including setup the environment , make up json , download dataset and some issues you might meet when running the project(there should be a plyparser issue in my develop repo which is what I am dealing with it.Just as a suggestion ,you might need try some different version and diffrent installation ways of plyfile to have a test of it .Making plyparser work is just important than everything as other thing I have shared the details.Tested in ubuntu14.4.5,python3.4 as default.)BTW,you can not only refer the wiki to install everything but you can also have a glance of the whole project.
+
+### Warnings
+This project test with python3.4 and Gpu with cuda7.5 and cudnn5.0 please use a Gpu with large memory (very important) and install the graphicard driver correctly.
+## Generating data
+### Generating synthetic data
+Run:
+```bash
+python generate_synthetic_data.py -c generate_synthetic_example.json
+```
+before run it you need to modify the path as mentioned in the json file.
+#### dependencies
+- cv2
+- tqdm
+- pyOpenGL
+- glfw
+- numpngw
+
+#### configuration
+see this example file in the configs folder.
+
+### Generating real data
+Run:
+```bash
+python generate_real_data.py -c generate_real_example.json
+```
+before run it you need to modify the path as mentioned in the json file.
+#### dependencies
+- cv2
+- tqdm
+- pyOpenGL
+- glfw
+- numpngw
+
+#### configuration
+see this example file in the configs folder.
+
+## Train
+Run:
+```bash
+python train.py -c train_example.json
+```
+before run it you need to modify the path as mentioned in the json file.
+#### dependencies
+- Hugh Perkins's [pytorch](https://github.com/hughperkins/pytorch)
+- scipy, skimage, numpy
+- tqdm
+- numpngw
+- slackclient (could be removed)
+
+#### configuration
+see this example file in the configs folder.
+
+## Test
+#### Sensor
+Will run the tracker with a sensor (kinect 2)
+```bash
+python test_sensor.py -c test_example.json
+```
+before run it you need to modify the path as mentioned in the json file.
+#### Sequence
+Will run the tracker on a sequence (folder) and save the error in a file
+```bash
+python test_sequence.py -c test_example.json
+```
+before run it you need to modify the path as mentioned in the json file.
+#### dependencies
+- cv2
+- Hugh Perkins's [pytorch](https://github.com/hughperkins/pytorch)
+- pyOpenGL
+- glfw
+- numpngw
+- [pyfreenect2](https://github.com/MathGaron/py3freenect2) (for Kinect2 sensor)
+
+#### configuration
+see this example file in the configs folder.
