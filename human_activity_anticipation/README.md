@@ -90,7 +90,8 @@ Navigate to the path -- /location/of/the/pkg/human_activity_anticipation/build
 
 
 ============================================
-# you can obtain the video and FAQ in the following link
+
+you can obtain the video and FAQ in the following link
 
 https://github.com/birlrobotics/birl_baxter/wiki/Human_Activity_Anticipation_en
 
